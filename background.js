@@ -1,5 +1,5 @@
 chrome.contextMenus.create({
-    "title": "Do I have?",
+    "title": "Do I have %s?",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab){
         var url = `https://deckbox.org/mtg/${info.selectionText}`;
@@ -8,7 +8,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    "title": "Scryfall",
+    "title": "Scryfall %s",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab){
         var url = `https://scryfall.com/search?q=${info.selectionText}`;
@@ -17,7 +17,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    "title": "Goldfish",
+    "title": "Goldfish %s",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab)
     {
@@ -34,7 +34,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    "title": "CardMarkert",
+    "title": "CardMarkert %s",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab)
     {
@@ -55,7 +55,13 @@ chrome.contextMenus.create({
     }
 });
 
+var parentId = chrome.contextMenus.create({
+    title: "Advanced",
+    contexts:["selection"]
+});
+
 chrome.contextMenus.create({
+    parentId: parentId,
     "title": "Goldfish -- Search",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab){
@@ -65,6 +71,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
+    parentId: parentId,
     "title": "CardMarkert -- Search",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab)
@@ -75,6 +82,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
+    parentId: parentId,
     "title": "Goldfish -- Deck",
     "contexts":["selection"],
     "onclick": function genericOnClick(info, tab)
