@@ -1,0 +1,19 @@
+{
+  "name": "Zephyr Mtg Search",
+  "description": "For searching mtg sites",
+  "manifest_version": 2,
+  "version": "0.1",
+  "permissions": [
+    "contextMenus", 
+    "https://www.mtggoldfish.com/",
+    "https://www.cardmarket.com/",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "scripts": [
+        "jquery-3.5.1.min.js",
+        "background.js"
+    ]
+  }
+}
